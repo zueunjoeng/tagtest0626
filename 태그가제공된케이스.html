@@ -51,10 +51,15 @@
 
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script> //제이쿼리는 each, 자바스크립트는 forEach
-        $(".btns button").each(function(){
-            $(this).on('click', function(){
+        // $(".btns button").each(function(){
+        //     $(this).on('click', function(){
+        //         alert($(this).index()) //자바스크립트는 없음 
+        //     })
+        // })
+        $(".btns button").on('click', function(){
+         
                 alert($(this).index()) //자바스크립트는 없음 
-            })
+
         })
     </script>
 </body>
