@@ -13,11 +13,11 @@
         .banner ul{
             /* swiper-wrapper */
             display: flex;
-            width: calc(100vw * 3);
+            transition: 0.4s;
         }
         .banner li{
             /* swiper-slide */
-            width:100vw;
+   
             height: 600px;
         }
         .banner li:nth-child(1){
@@ -56,9 +56,19 @@
         //         alert($(this).index()) //자바스크립트는 없음 
         //     })
         // })
+
+        //index(), width(), height(), $(this), attr()
+        const aniw = $(document).width(); //window, document는 "",'' 붙이지 않는다. //숫자
+        //const aniw = $(document).css('width'); // 문자
+        //const intermargin = parserInt($(".gnb").css("margin-left")); //문자를 정수(숫자)로 돌려줄게! parseInt
+        const lis = $(".banner li").length;
+        $(".banner li").width(aniw)   //swiper-slide
+        $(".banner ul").width(aniw*lis)  // swiper-wrapper
+
         $(".btns button").on('click', function(){
          
-                alert($(this).index()) //자바스크립트는 없음 
+                //alert($(this).index()) //자바스크립트는 없음 
+                $(".banner ul").css("marginLeft", -aniw * $(this).index() )
 
         })
     </script>
