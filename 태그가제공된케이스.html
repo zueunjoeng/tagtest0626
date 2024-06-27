@@ -32,6 +32,26 @@
         .btns{
             display: flex;
             justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .btns button{
+            border: 0;
+            font-size: 0;
+            line-height: 0;
+            display: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            background-color: #666;
+            margin:0 10px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        .btns button.on{
+            background-color: red;
+            width:40px;
+            cursor: default;
         }
     </style>
 </head>
@@ -43,7 +63,7 @@
             <li></li>
         </ul>
         <div class="btns">
-            <button>1</button>
+            <button class="on">1</button>
             <button>2</button>
             <button>3</button>
         </div>
@@ -51,24 +71,15 @@
 
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script> //제이쿼리는 each, 자바스크립트는 forEach
-        // $(".btns button").each(function(){
-        //     $(this).on('click', function(){
-        //         alert($(this).index()) //자바스크립트는 없음 
-        //     })
-        // })
-
-        //index(), width(), height(), $(this), attr()
-        const aniw = $(document).width(); //window, document는 "",'' 붙이지 않는다. //숫자
-        //const aniw = $(document).css('width'); // 문자
-        //const intermargin = parserInt($(".gnb").css("margin-left")); //문자를 정수(숫자)로 돌려줄게! parseInt
+   
+        const aniw = $(document).width();
         const lis = $(".banner li").length;
-        $(".banner li").width(aniw)   //swiper-slide
-        $(".banner ul").width(aniw*lis)  // swiper-wrapper
+        $(".banner li").width(aniw)  
+        $(".banner ul").width(aniw*lis)  
 
         $(".btns button").on('click', function(){
-         
-                //alert($(this).index()) //자바스크립트는 없음 
-                $(".banner ul").css("marginLeft", -aniw * $(this).index() )
+                $(".banner ul").css("marginLeft", -aniw * $(this).index());
+                $(this).addClass("on").siblings().removeClass('on')
 
         })
     </script>
