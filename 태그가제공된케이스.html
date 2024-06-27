@@ -78,14 +78,18 @@
         $(".banner ul").width(aniw*lis)
         
         //버튼 제작
+
         let btnsbutton="";
         //each로 할때
-        $(".banner li").each(function(idx, ele){
-            console.log(idx, ele); //순번, 객체
-            btnsbutton += `<button>${idx + 1}</button>`;
-        })
+        // $(".banner li").each(function(idx, ele){
+        //     console.log(idx, ele); //순번, 객체
+        //     btnsbutton += `<button>${idx + 1}</button>`;
+        // })
 
-        //for로 할때
+        //for로 할때 - 가볍고 편리
+            for(let x =0; x<lis; x++){
+                btnsbutton += `<button>${x+ 1}</button>`;
+            }
         $(".btns").html(btnsbutton)
 
         $(".btns button").on('click', function(){
