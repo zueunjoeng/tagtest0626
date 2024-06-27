@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--2. 회원인 경우에는 mypage로 링크가 가고 나머지는 login으로 링크를 넘김  -->
+    <div class="banner">
+        <ul>
+            <li data-mgs="회원"></li>
+            <li data-mgs="비회원"></li>
+            <li data-mgs="회원"></li>
+            <li data-mgs="비회원"></li>
+            <li data-mgs="비회원"></li>
+        </ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+        let test02="";
+        $(".banner li").each(function(idx, ele){
+            const defmgs= $(this).data("mgs");
+            const atomgs = defmgs === "회원" ? "mypage":"login";
+            test02 +=`<li><a href=${atomgs}>${defmgs}</a></li>`
+
+        })
+        $(".banner ul").html(test02);
+    </script>
+</body>
+</html>

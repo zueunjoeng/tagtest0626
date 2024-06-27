@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- li가 5개인 태그에서 마지막 li만 border-bottom이라는 클래스를 삽입하고 싶음 -->
+    <div class="banner">
+        <ul>
+            <li data-mgs="안녕하세요이"></li>
+            <li data-mgs="안녕하세요이"></li>
+            <li data-mgs="안녕하세요이"></li>
+            <li data-mgs="안녕하세요이"></li>
+            <li data-mgs="안녕하세요이"></li>
+        </ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+        let test = "";
+
+        $(".banner li").each(function(idx, ele){
+            const licls = idx === 4? "border-bottom":"";
+            test += `<li class="${licls}">${$(this).data("mgs")}</li>`;
+        })
+   
+        $(".banner ul").html(test);    
+
+    </script>
+</body>
+</html>

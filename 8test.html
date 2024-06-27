@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+      
+    </style>
+</head>
+<body>
+    <ul class="notice">
+        <li>텍스트</li>
+        <li>텍스트</li>
+        <li>텍스트</li>
+        <li>텍스트</li>
+        <li>텍스트</li>
+    </ul>
+    
+    <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+    <script>
+        //li가 5개인 태그에서 마지막 li만 border-bottom이라는 클래스를 삽입하고 싶음
+        //li가 모두 mb-3, 단 마지막 li만 mb-3넣지말라
+        //모두 border-bottom
+    
+    const totalli= $(".notice li").length;
+
+    $(".notice li").each(function(){ //function뒤에 ele, idx안쓰는 경우가 많음. 많이 보게 될 케이스
+       
+       const licls = $(this).index() === totalli -1 ? "border-bottom":"border-bottom mb-3"
+       $(this).addClass(licls);
+   
+    })
+    $("ul").html(test);    
+
+    </script>
+</body>
+</html>

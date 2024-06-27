@@ -87,14 +87,18 @@
             //     btnsbutton += `<button>${x+ 1}</button>`;
             // }
         
-        //each로 해야만 할 때
+            //each로 해야만 할 때
             $(".banner li").each(function(idx, ele){
-                btnsbutton += `<button>${$(this).data("msg")}</button>`;
+                const oncls = idx ===0? "on":"";
+                btnsbutton += `<button class="${oncls}">${$(this).data("msg")}</button>`;
+                
             })
 
         $(".btns").html(btnsbutton)
         
-        $(".btns button").eq(0).addClass("on"); //사이트 들어가면 첫번째 버튼에 빨간색 활성화
+       // $(".btns button").eq(0).addClass("on"); //사이트 들어가면 첫번째 버튼에 빨간색 활성화
+        //삼항식으로 표현 및  최적화
+
 
         $(".btns button").on('click', function(){
                 $(".banner ul").css("marginLeft", -aniw * $(this).index());
