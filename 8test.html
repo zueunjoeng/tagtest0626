@@ -33,12 +33,15 @@
         const num =3;
         $(`.notice li:nth-child(${num})`).addClass("d-none");
 
-        //$(".notice li").eq(1).addClass("d-none");
-        //$(".notice li:first-child").next().addClass("d-none"); 
-        //$(".notice li:first-child + li").addClass("d-none"); //위에 식과 같지만 최적화
-        //$(".notice li + li").addClass("d-none"); // 첫li말고 그 다음 애들 다 d-none들어감
-        //$(".notice li:not(:first-child)").addClass("d-none");
-        //제외 선택자  $(".notice li").not().addClass("d-none");
+        //마이페이지는 네이버로 링크는 네이버 주고
+        const inserdb = {
+            "href" : "https://www.naver.com", 
+            "target" : "_blank"
+        };
+
+        $("#mypage").attr(inserdb).html("네이버");
+     
+
     </script>
 </body>
 </html>
