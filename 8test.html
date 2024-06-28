@@ -10,6 +10,7 @@
             padding: 0;
         }
       
+        .on{color:red;}
     </style>
 </head>
 <body>
@@ -30,17 +31,26 @@
   crossorigin="anonymous"></script>
     <script>
         //화면이 열리자마다 두번째 li한테만 d-none 클래스 넣어주기
-        const num =3;
-        $(`.notice li:nth-child(${num})`).addClass("d-none");
+        // const num =3;
+        // $(`.notice li:nth-child(${num})`).addClass("d-none");
 
         //마이페이지는 네이버로 링크는 네이버 주고
-        const inserdb = {
-            "href" : "https://www.naver.com", 
-            "target" : "_blank"
-        };
+        // const inserdb = {
+        //     "href" : "https://www.naver.com", 
+        //     "target" : "_blank"
+        // };
 
-        $("#mypage").attr(inserdb).html("네이버");
+        // $("#mypage").attr(inserdb).html("네이버");
      
+        let count = 0;
+        const lis=$(".notice li").length;
+        $(".notice li").eq(count).addClass("on");
+
+        setInterval(function(){
+            count++;
+            count = count % lis;
+            $(".notice li").eq(count).addClass("on").siblings().removeClass("on");
+        },1000)
 
     </script>
 </body>
